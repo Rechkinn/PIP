@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+        td {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <h2>Список пользователей</h2>
+    <table>
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Почта</th>
+            <th>Номер телефона</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone_number }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Товары магазина</h2>
+    <table>
+        <tr>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>Категория</th>
+            <th>Бренд</th>
+            <th>Рейтинг</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.brand }}</td>
+            <td>{{ product.rating }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Заказы пользователей</h2>
+    <table>
+        <tr>
+            <th>Номер заказа</th>
+            <th>Статус заказа</th>
+            <th>Ожидаемая дата доставки</th>
+            <th>Метод оплаты</th>
+            <th>Место доставки</th>
+            <th>Общая стоимость</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id_order }}</td>
+            <td>{{ order.order_status }}</td>
+            <td>{{ order.date_delivery }}</td>
+            <td>{{ order.payment_method }}</td>
+            <td>{{ order.pickup_location }}</td>
+            <td>{{ order.total_price }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список недвижимости</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        table {
+            border-collapse: collapse;
+            text-align: left;
+        }
+        table, th, td {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Продукт "{{ product_details.name }}"</h1>
+    <table>
+        <tr>
+            <th>ID продукта</th>
+            <th>Название</th>
+<!--            <th>Описание</th>-->
+            <th>Цена</th>
+            <th>Количество на складе</th>
+            <th>Категория</th>
+            <th>Бренд</th>
+<!--            <th>URL изображения товара</th>-->
+            <th>Рейтинг</th>
+        </tr>
+        <tr>
+            <td>{{ product_details.product_id }}</td>
+            <td>{{ product_details.name }}</td>
+<!--            <td>{{ product_details.description }}</td>-->
+            <td>{{ product_details.price }}</td>
+            <td>{{ product_details.count_storage }}</td>
+            <td>{{ product_details.category }}</td>
+            <td>{{ product_details.brand }}</td>
+<!--            <td>{{ product_details.image_url }}</td>-->
+            <td>{{ product_details.rating }}</td>
+        </tr>
+    </table>
+
+</body>
+</html>

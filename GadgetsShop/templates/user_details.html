@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список недвижимости</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        table {
+            border-collapse: collapse;
+            text-align: left;
+        }
+        table, th, td {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Пользователь {{ user_details.first_name }} {{ user_details.last_name }}</h1>
+    <table>
+        <tr>
+            <th>ID пользователя</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Email</th>
+            <th>Номер телефона</th>
+        </tr>
+            <tr>
+                <td>{{ user_details.id_user }}</td>
+                <td>{{ user_details.first_name }}</td>
+                <td>{{ user_details.last_name }}</td>
+                <td>{{ user_details.email }}</td>
+                <td>{{ user_details.phone_number }}</td>
+            </tr>
+    </table>
+
+</body>
+</html>

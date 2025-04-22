@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список недвижимости</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        table {
+            border-collapse: collapse;
+            text-align: left;
+        }
+        table, th, td {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Номер заказа: {{ order_details.id_order }}</h1>
+    <table>
+        <tr>
+            <th>ID заказа</th>
+            <th>Заказчик</th>
+            <th>Статус</th>
+            <th>Дата создания</th>
+            <th>Дата доставки</th>
+            <th>Метод оплаты</th>
+            <th>Место доставки</th>
+            <th>Общая стоимость</th>
+        </tr>
+        <tr>
+            <td>{{ order_details.id_order }}</td>
+            <td>{{ order_details.user }}</td>
+            <td>{{ order_details.order_status }}</td>
+            <td>{{ order_details.date_created }}</td>
+            <td>{{ order_details.date_delivery }}</td>
+            <td>{{ order_details.payment_method }}</td>
+            <td>{{ order_details.pickup_location }}</td>
+            <td>{{ order_details.total_price }}</td>
+
+
+        </tr>
+    </table>
+
+</body>
+</html>

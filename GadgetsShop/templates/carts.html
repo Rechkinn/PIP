@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            text-align: left;
+        }
+        table, th, td {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+<h1>Все корзины</h1>
+    <table>
+        <tr>
+            <th>ID корзины</th>
+            <th>ID пользователя</th>
+            <th>ID заказа</th>
+            <th>ID продукта</th>
+            <th>Количество продуктов</th>
+        </tr>
+         {% for cart in list_of_all_carts %}
+            <tr>
+                <td>{{ cart.id_cart }}</td>
+                <td><a href="{% url 'user_details' cart.user.id_user %}">{{ cart.user.id_user }}</a></td>
+                <td><a href="{% url 'order_details' cart.order.id_order %}">{{ cart.order.id_order }}</a></td>
+                <td><a href="{% url 'product_details' cart.product.product_id %}">{{ cart.product.product_id }}</a></td>
+                <td>{{ cart.count_product }}</td>
+            </tr>
+         {% endfor %}
+    </table>
+</body>
+</html>
